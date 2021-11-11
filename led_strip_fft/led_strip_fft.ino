@@ -67,10 +67,12 @@ void getSamples(){
 }
 
 void displayUpdate(){
-  int color = FFT.MajorPeak()%255;
+  // todo: map note to a color
+  int color = int(FFT.MajorPeak())%255;
+  int max_intensity = max(Intensity)
   for(int i = 0; i < xres; i++){
     for(int j = 0; j < yres; j++){
-      if(j <= Intensity[i]){                                // Light everything within the intensity range
+      if(j <= max_intensity){                                // Light everything within the intensity range
         if(j%2 == 0){
           leds[(xres*(j+1))-i-1] = CHSV(color, 255, BRIGHTNESS);
         }
@@ -87,6 +89,5 @@ void displayUpdate(){
         }
       }
     }
-    //color += 255/xres;                                      // Increment the Hue to get the Rainbow
   }
 }
