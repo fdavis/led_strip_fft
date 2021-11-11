@@ -56,6 +56,7 @@ void getSamples(){
   FFT.ComplexToMagnitude(vReal, vImag, SAMPLES);
 
   //Update Intensity Array
+  // todo: get peak intensity here
   for(int i = 2; i < (xres*Displacement)+2; i+=Displacement){
     vReal[i] = constrain(vReal[i],0 ,2047);            // set max value for input data
     vReal[i] = map(vReal[i], 0, 2047, 0, yres);        // map data to fit our display
