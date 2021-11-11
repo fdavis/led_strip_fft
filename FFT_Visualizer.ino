@@ -67,7 +67,7 @@ void getSamples(){
 }
 
 void displayUpdate(){
-  int color = 0;
+  int color = FFT.MajorPeak()%255;
   for(int i = 0; i < xres; i++){
     for(int j = 0; j < yres; j++){
       if(j <= Intensity[i]){                                // Light everything within the intensity range
@@ -87,6 +87,6 @@ void displayUpdate(){
         }
       }
     }
-    color += 255/xres;                                      // Increment the Hue to get the Rainbow
+    //color += 255/xres;                                      // Increment the Hue to get the Rainbow
   }
 }
